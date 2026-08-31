@@ -9,6 +9,6 @@ El programa cuenta con dos funciones:
 
 simular_galton(): realiza la simulación de las canicas.
 graficar_histograma(): muestra los resultados en un histograma.
-Reflexión
+# Reflexión
 
 Aprendimos, durante este curso y la actividad, que los módulos y paquetes de Python facilitan mucho el trabajo, ya que nos permiten utilizar herramientas que ya existen en lugar de programarlas desde cero. También vimos que las funciones ayudan a organizar el código y hacerlo más fácil de entender y reutilizar.
