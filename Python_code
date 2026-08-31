@@ -1,0 +1,77 @@
+#ProyectoM3
+
+import random
+import matplotlib.pyplot as plt
+
+
+# Función 1: Simulación de la máquina de Galton
+def simular_galton(num_canicas, niveles):
+
+    # Lista para almacenar la posición final de cada canica
+    resultados = []
+
+    # Simular cada canica
+    for canica in range(num_canicas):
+
+        posicion = 0
+
+        # Cada canica pasa por los 12 niveles
+        for nivel in range(niveles):
+
+            # Número aleatorio entre 0 y 1
+            valor = random.random()
+
+            # 50% de probabilidad de ir a la derecha
+            # 50% de probabilidad de ir a la izquierda
+            if valor >= 0.5:
+                posicion += 1
+            else:
+                posicion -= 1
+
+        # Guardar la posición final
+        resultados.append(posicion)
+
+    return resultados
+
+
+# Función 2: Graficación del histograma
+def graficar_histograma(resultados, niveles):
+
+    # Crear las posiciones de los contenedores
+    contenedores = range(-niveles, niveles + 1, 2)
+
+    # Crear el histograma
+    plt.hist(
+        resultados,
+        bins=range(-niveles - 1, niveles + 2, 2),
+        edgecolor='black',
+        rwidth=0.9
+    )
+
+    # Nombre de los ejes
+    plt.xlabel('Contenedor')
+    plt.ylabel('Cantidad de canicas')
+
+    # Título
+    plt.title('Simulación de una Máquina de Galton - 3000 canicas')
+
+    # Mostrar líneas de referencia
+    plt.xticks(contenedores)
+
+    # Mostrar gráfica
+    plt.show()
+
+# Programa principal
+
+# Número de canicas
+NUM_CANICAS = 3000
+
+# Número de niveles
+NIVELES = 12
+
+
+# Realizar la simulación
+resultados = simular_galton(NUM_CANICAS, NIVELES)
+
+# Graficar los resultados
+graficar_histograma(resultados, NIVELES)
